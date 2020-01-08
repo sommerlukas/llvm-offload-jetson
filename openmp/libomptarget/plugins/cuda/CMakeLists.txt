@@ -9,7 +9,7 @@
 # Build a plugin for a CUDA machine if available.
 #
 ##===----------------------------------------------------------------------===##
-if (NOT(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(ppc64le)$" AND CMAKE_SYSTEM_NAME MATCHES "Linux"))
+if (NOT(CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64)|(ppc64le)|(aarch64)$" AND CMAKE_SYSTEM_NAME MATCHES "Linux"))
   libomptarget_say("Not building CUDA offloading plugin: only support CUDA in Linux x86_64 or ppc64le hosts.")
   return()
 elseif (NOT LIBOMPTARGET_DEP_LIBELF_FOUND)
