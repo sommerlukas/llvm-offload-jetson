@@ -47,8 +47,8 @@ __DEVICE__ float abs(float);
 // TODO: Once variant is supported the additional functions will have
 // to be removed.
 #if defined(_OPENMP) && defined(__cplusplus)
-__DEVICE__ const double abs(const double);
-__DEVICE__ const float abs(const float);
+//__DEVICE__ const double abs(const double);
+//__DEVICE__ const float abs(const float);
 #endif
 __DEVICE__ int abs(int) __NOEXCEPT;
 __DEVICE__ double acos(double);
