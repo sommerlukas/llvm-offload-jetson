@@ -586,7 +586,7 @@ void *__tgt_rtl_data_alloc(int32_t device_id, int64_t size, void *hst_ptr) {
   }
 
   CUdeviceptr ptr;
-  err = cuMemAlloc(&ptr, size);
+  err = cuMemAllocManaged(&ptr, size, CU_MEM_ATTACH_GLOBAL);
   if (err != CUDA_SUCCESS) {
     DP("Error while trying to allocate %d\n", err);
     CUDA_ERR_STRING(err);
@@ -648,7 +648,7 @@ int32_t __tgt_rtl_data_delete(int32_t device_id, void *tgt_ptr) {
     return OFFLOAD_FAIL;
   }
 
-  err = cuMemFree((CUdeviceptr)tgt_ptr);
+  err = cuMemFree((CUdeviceptr) tgt_ptr);
   if (err != CUDA_SUCCESS) {
     DP("Error when freeing CUDA memory\n");
     CUDA_ERR_STRING(err);
