@@ -685,7 +685,7 @@ public:
       return nullptr;
 
     CUdeviceptr DevicePtr;
-    Err = cuMemAlloc(&DevicePtr, Size);
+    Err = cuMemAllocManaged(&DevicePtr, Size, CU_MEM_ATTACH_GLOBAL);
     if (!checkResult(Err, "Error returned from cuMemAlloc\n"))
       return nullptr;
 
